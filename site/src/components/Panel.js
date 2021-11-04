@@ -19,13 +19,14 @@ import { ProjectLabel } from '.';
 const PanelContainer = styled.aside`
   block-size: 100%;
   inline-size: 240px;
-  background-color: ${({ theme }) => theme.clrBase20};
+  background-color: ${({ theme }) => theme.clrBase21};
   color: ${({ theme }) => theme.clrBase06};
   font-size: ${({ theme }) => theme.fsHeadingH5};
   position: absolute;
   top: 0;
   left: 100%;
   z-index: ${({ theme }) => theme.zIndexModal};
+  display: ${props => (props.showPanel ? 'block' : 'none')};
 `;
 const PanelHeader = styled.div`
   display: flex;
@@ -37,7 +38,7 @@ const PanelTop = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: ${({ theme }) => theme.spacingXxs};
+  padding: ${({ theme }) => `0.2rem ${theme.spacingXxs}`};
 
   background-color: ${({ theme }) => theme.clrBase17};
   color: ${({ theme }) => theme.clrBase06};
@@ -73,7 +74,7 @@ const PanelProjects = styled.div`
   overflow: hidden;
 `;
 
-export default function Panel() {
+export default function Panel({ showPanel }) {
   const { data } = useContext(Context);
   const [show, setShow] = useToggle(false);
   const handleShowProjects = () => {
@@ -81,7 +82,7 @@ export default function Panel() {
   };
 
   return (
-    <PanelContainer>
+    <PanelContainer showPanel={showPanel}>
       <IconContext.Provider value={{ size: 14 }}>
         <PanelHeader>
           Explorer <VscEllipsis />

@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { useFetch } from '../hooks';
+
 const topProjects = [
   'Vanilla-CSS-Elements',
   'Googl-Drive-Clone',
@@ -11,7 +12,10 @@ export const Context = createContext(null);
 
 export default function DataContext({ children }) {
   const [project, setProject] = useState(null);
+  const [colorTheme, setColorTheme] = useState('sublimeMonkai');
+
   const [data, setData] = useState(null);
+
   let { data: fetchedData } = useFetch(
     'https://api.github.com/users/TalmSnir/repos'
   );
@@ -25,7 +29,14 @@ export default function DataContext({ children }) {
     }
   }, [fetchedData]);
   return (
-    <Context.Provider value={{ data, project, setProject }}>
+    <Context.Provider
+      value={{
+        data,
+        project,
+        setProject,
+        colorTheme,
+        setColorTheme,
+      }}>
       {children}
     </Context.Provider>
   );

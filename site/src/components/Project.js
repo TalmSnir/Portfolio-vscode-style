@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Header1, Paragraph, StyledLink } from '.';
+import { Header1, Paragraph, ProjectTab, StyledLink } from '.';
 
-const Container = styled.div`
+const Container = styled.div``;
+const InnerContainer = styled.div`
+  padding: ${({ theme }) =>
+    `${theme.spacingMd} ${theme.spacingSm} ${theme.spacingSm} `};
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacingSm};
 `;
+
 const LinksContainer = styled.div`
   display: flex;
   align-items: center;
@@ -29,23 +33,26 @@ const LinksContainer = styled.div`
   }
 `;
 
-export default function Project({ projectData }) {
+export default function Project({ projectData, setShow }) {
   return (
     <Container>
-      <Header1>{projectData.name}</Header1>
-      <Paragraph>{projectData.description}</Paragraph>
-      <LinksContainer>
-        <StyledLink href={projectData.site}>live site</StyledLink>
-        <StyledLink href={projectData.repo}>repo link</StyledLink>
-      </LinksContainer>
+      <ProjectTab setShow={setShow} text={projectData.name} />
+      <InnerContainer>
+        <Header1>{projectData.name}</Header1>
+        <Paragraph>{projectData.description}</Paragraph>
+        <LinksContainer>
+          <StyledLink href={projectData.site}>live site</StyledLink>
+          <StyledLink href={projectData.repo}>repo link</StyledLink>
+        </LinksContainer>
 
-      <iframe
-        src={projectData.site}
-        frameBorder='0'
-        title='project live site'
-        allowFullScreen
-        referrerPolicy='no-referrer'
-        style={{ height: '100vh', width: '100%' }}></iframe>
+        <iframe
+          src={projectData.site}
+          frameBorder='0'
+          title='project live site'
+          allowFullScreen
+          referrerPolicy='no-referrer'
+          style={{ height: '100vh', width: '100%' }}></iframe>
+      </InnerContainer>
     </Container>
   );
 }

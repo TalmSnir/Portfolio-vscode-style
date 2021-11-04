@@ -6,12 +6,13 @@ import { Context } from '../context/DataContext';
 const MainContainer = styled.main`
   block-size: 100%;
   inline-size: 100%;
-  background: ${({ theme }) => theme.clrBase21};
+  background: ${({ theme }) => theme.clrBase19};
   grid-row: 2;
   grid-column: 2;
   overflow-y: scroll;
+  overflow-x: hidden;
   scrollbar-width: thin;
-  padding: ${({ theme }) => theme.spacingSm};
+
   scrollbar-color: ${({ theme }) => ` ${theme.clrBase17} transparent `};
   &::-webkit-scrollbar {
     width: 12px;
@@ -26,9 +27,11 @@ const MainContainer = styled.main`
   color: ${({ theme }) => theme.clrBase01}; ;
 `;
 
-export default function Main() {
+export default function Main({ children }) {
   const { data, project } = useContext(Context);
   const [projectData, setProjectData] = useState(null);
+  const [showProject, setShowProject] = useState(true);
+
   useEffect(() => {
     if (project) {
       const { name, homepage, html_url, description } = data[project];
@@ -38,14 +41,18 @@ export default function Main() {
         site: homepage,
         description: description,
       });
+      setShowProject(true);
     }
   }, [project, data]);
 
   return (
     <MainContainer>
-      {projectData && <Project projectData={projectData} />}
+      {projectData && showProject && (
+        <Project projectData={projectData} setShow={setShowProject} />
+      )}
+      {children}
     </MainContainer>
   );
 }
 // `https://raw.githubusercontent.com/TalmSnir/${name}/main/README.md`
-// requestFullscreen()
+// {showSection && showSection==='designs'}

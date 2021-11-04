@@ -1,4 +1,5 @@
 import React from 'react';
+import { IconContext } from 'react-icons';
 import {
   VscBell,
   VscError,
@@ -6,8 +7,8 @@ import {
   VscSync,
   VscFeedback,
   VscWarning,
-  VscArrowSmallUp,
-  VscArrowSmallDown,
+  VscArrowUp,
+  VscArrowDown,
 } from 'react-icons/vsc';
 
 import styled from 'styled-components';
@@ -16,22 +17,22 @@ const FooterContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.clrAccentBlue06};
+  background-color: ${({ theme }) => theme.clrBase12};
   color: ${({ theme }) => theme.clrBase01};
   font-size: ${({ theme }) => theme.fsBodyB2};
-  padding: ${({ theme }) => `${theme.spacingXxs} ${theme.spacingXs}`};
+  padding: ${({ theme }) => `0.2rem ${theme.spacingXs}`};
   grid-row: -1;
   grid-column: 1/-1;
 `;
 
-const RightSide = styled.div`
+const LeftSide = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spacingXs};
 `;
 
-const LeftSide = styled.div`
+const RightSide = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacingXs};
@@ -39,46 +40,44 @@ const LeftSide = styled.div`
 
 const IconWithText = styled.span`
   display: flex;
-  align-items: center;
-  gap: ${({ theme }) => `calc(${theme.spacingXxs}/2)`};
+  align-items: flex-end;
+  line-height: 12px;
+  gap: 0.1rem;
 `;
 export default function Footer() {
   return (
     <FooterContainer>
-      <RightSide>
-        <IconWithText>
-          <VscSourceControl />
-          main
-        </IconWithText>
-        <IconWithText>
-          <VscSync />
+      <IconContext.Provider value={{ size: 12 }}>
+        <LeftSide>
+          <IconWithText>
+            <VscSourceControl />
+            main
+          </IconWithText>
+          <IconWithText>
+            <VscSync />
+            0
+            <VscArrowDown />
+            1
+            <VscArrowUp />
+          </IconWithText>
+
           <IconWithText>
             0
-            <VscArrowSmallDown />
+            <VscError />
+            0
+            <VscWarning />
           </IconWithText>
-          <IconWithText>
-            1
-            <VscArrowSmallUp />
-          </IconWithText>
-        </IconWithText>
-
-        <IconWithText>
-          0
-          <VscError />
-        </IconWithText>
-        <IconWithText>
-          0
-          <VscWarning />
-        </IconWithText>
-      </RightSide>
-      <LeftSide>
-        <span>Ln 17, col 3 Spaces:2</span>
-        <span>UTF-8</span>
-        <span>LF</span>
-        <span>JavaScript</span>
-        <VscFeedback />
-        <VscBell />
-      </LeftSide>
+        </LeftSide>
+        <div>talmsnir@gmail.com</div>
+        <RightSide>
+          <span>Ln 17, col 3 Spaces: 2021</span>
+          <span>UTF-8</span>
+          <span>LF</span>
+          <span>TalmSnir</span>
+          <VscFeedback />
+          <VscBell />
+        </RightSide>
+      </IconContext.Provider>
     </FooterContainer>
   );
 }

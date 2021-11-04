@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { Context } from './context/DataContext';
 
 // --dark--- -base  -base 01: rgba(255, 255, 255, 1);
 // --dark--- -base  -base 02: rgba(240, 240, 240, 1);
@@ -93,11 +94,13 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 // --markdown--- -h5: 11px;
 // --markdown--- -h6: 9px;
 // --markdown--- -paragraph: 13px;
-
-const theme = {
+const sublimeMonkai = {
   clrBase01: 'rgba(255, 255, 255, 1)',
   clrBase06: 'rgba(204, 204, 204, 1)',
+  clrBase12: 'rgba(96, 96, 96, 1)',
   clrBase17: 'rgba(51, 51, 51, 1)',
+  clrBase18: 'rgba(48, 48, 49, 1)',
+  clrBase19: 'rgba(41, 41, 41, 1)',
   clrBase20: 'rgba(37, 37, 38, 1)',
   clrBase21: 'rgba(0, 0, 0, 1)',
 
@@ -110,32 +113,41 @@ const theme = {
   clrAccent: '#082032',
   clrBlack: '#000000',
   clrWhite: '#FFFFFF',
+};
+const vscodeLight = {
+  clrBase01: 'rgba(0, 0, 0, 1)',
+  clrBase06: 'rgba(0, 0, 0, 1)',
+  clrBase17: 'rgba(204, 204, 204, 1)',
+  clrBase20: 'rgba(160, 160, 160, 1)',
+  clrBase21: ' rgba(255, 255, 255, 1)',
 
-  fsBodyB1: '18px',
-  fsBodyB2: '12px',
-  fsHeadingH1: '26px',
-  fsHeadingH5: '11px',
+  clrAccentBlue06: 'rgba(64, 166, 255, 1)',
+  clrAccentGreen01: 'rgba(115, 201, 145, 1)',
+  clrAccentYellow03: 'rgba(215, 186, 125, 1)',
+  clrAccentOrange02: 'rgba(204, 102, 51, 1)',
 
-  fwXl: '800',
-  fwLg: '700',
-  fwMd: '500',
-  fwSm: '400',
-  fwXs: '300',
+  clrSecondary: '#334756',
+  clrAccent: '#082032',
+  clrBlack: '#000000',
+  clrWhite: '#FFFFFF',
+};
 
-  brPill: '3rem',
-  brRound: '1rem',
-  brCircle: '50%',
+const tomorrowNightBlue = {
+  clrBase01: 'rgba(0, 0, 0, 1)',
+  clrBase06: 'rgba(0, 0, 0, 1)',
+  clrBase17: 'rgba(204, 204, 204, 1)',
+  clrBase20: 'rgba(160, 160, 160, 1)',
+  clrBase21: ' rgba(255, 255, 255, 1)',
 
-  shadow: '0 0 10px 0 rgba(0,0,0,0.2)',
+  clrAccentBlue06: 'rgba(64, 166, 255, 1)',
+  clrAccentGreen01: 'rgba(115, 201, 145, 1)',
+  clrAccentYellow03: 'rgba(215, 186, 125, 1)',
+  clrAccentOrange02: 'rgba(204, 102, 51, 1)',
 
-  spacingXl: '8rem',
-  spacingLg: '6rem',
-  spacingMd: '4rem',
-  spacingSm: '2rem',
-  spacingXs: '1rem',
-  spacingXxs: '0.5rem',
-
-  zIndexModal: '1000',
+  clrSecondary: '#334756',
+  clrAccent: '#082032',
+  clrBlack: '#000000',
+  clrWhite: '#FFFFFF',
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -156,6 +168,44 @@ body {
 
 `;
 export default function SiteTheme({ children }) {
+  const { colorTheme } = useContext(Context);
+
+  let colors = {
+    sublimeMonkai,
+    vscodeLight,
+    tomorrowNightBlue,
+  };
+
+  const theme = {
+    ...colors[colorTheme],
+    fsBodyB1: '18px',
+    fsBodyB2: '12px',
+    fsHeadingH1: '26px',
+    fsHeadingH5: '11px',
+
+    fwXl: '800',
+    fwLg: '700',
+    fwMd: '500',
+    fwSm: '400',
+    fwXs: '300',
+
+    brPill: '3rem',
+    brRound: '1rem',
+    brCircle: '50%',
+
+    shadow: '0 0 10px 0 rgba(0,0,0,0.2)',
+
+    spacingXl: '8rem',
+    spacingLg: '6rem',
+    spacingMd: '4rem',
+    spacingSm: '2rem',
+    spacingXs: '1rem',
+    spacingXxs: '0.5rem',
+
+    zIndexModal: '1000',
+    zIndexTab: '900',
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />

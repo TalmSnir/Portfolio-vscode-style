@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useToggle } from '../hooks';
 
 export const StyleButton = styled.button`
   appearance: none;
@@ -36,20 +35,25 @@ export const StyleButton = styled.button`
 
 export default function Button({
   children,
-  onClick,
+  onClick = null,
   active = false,
   title,
   type = 'button',
 }) {
-  const [isActive, setIsActive] = useToggle(false);
+  const [isActive, setIsActive] = useState(false);
+  useEffect(() => {
+    setIsActive(active);
+  }, [active]);
+
   const handleClick = () => {
-    onClick();
-    setIsActive();
+    onClick && onClick();
+    setIsActive(prev => !prev);
   };
+
   return (
     <StyleButton
       onClick={handleClick}
-      active={isActive || active}
+      active={isActive}
       title={title}
       type={type}>
       {children}

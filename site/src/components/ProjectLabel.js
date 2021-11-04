@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { VscGist, VscCircleFilled } from 'react-icons/vsc';
 import { Context } from '../context/DataContext';
+import { Link } from 'react-router-dom';
 const Label = styled.div`
   display: flex;
   align-items: center;
@@ -28,7 +29,7 @@ export default function ProjectLabel({ name, id }) {
     }
   }, [project, id, setIsActive]);
   return (
-    <Label id={id} onClick={handleClick}>
+    <Label as={Link} to='/project' id={id} onClick={handleClick}>
       <div
         style={{
           display: 'flex',

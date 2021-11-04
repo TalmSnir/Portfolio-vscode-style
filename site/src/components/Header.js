@@ -12,7 +12,8 @@ const HeaderContainer = styled.header`
   background-color: ${({ theme }) => theme.clrBase21};
   color: ${({ theme }) => theme.clrBase06};
   letter-spacing: 0.04em;
-  border-bottom: ${({ theme }) => `0.5px solid ${theme.clrBase17}`};
+
+  position: relative;
 `;
 const HeaderSections = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ const HeaderSections = styled.div`
   font-size: ${({ theme }) => theme.fsHeadingH5};
   text-transform: capitalize;
 `;
+
 export default function Header() {
   return (
     <HeaderContainer>

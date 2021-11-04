@@ -12,6 +12,10 @@ import Panel from './Panel';
 import Header from './Header';
 import About from './About';
 import ProjectLabel from './ProjectLabel';
+import ProjectTab from './ProjectTab';
+import ImgGrid from './ImgGrid';
+import Landing from './Landing';
+import { FlexContainer } from './FlexContainer';
 import { Header1, Paragraph, StyledLink } from './BaseComponents';
 export {
   Button,
@@ -31,4 +35,8 @@ export {
   Header1,
   Paragraph,
   StyledLink,
+  ProjectTab,
+  ImgGrid,
+  Landing,
+  FlexContainer,
 };

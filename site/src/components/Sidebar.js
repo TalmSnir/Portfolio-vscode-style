@@ -33,7 +33,7 @@ export default function SideBar() {
           size: 24,
         }}>
         <SidebarTop onClick={handleClick} />
-        {showPanel && <Panel />}
+        <Panel showPanel={showPanel} />
         <SidebarSocial />
         <SidebarBottom />
       </IconContext.Provider>
