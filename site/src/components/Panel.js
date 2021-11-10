@@ -25,7 +25,7 @@ const PanelContainer = styled.aside`
   position: absolute;
   top: 0;
   left: 100%;
-  z-index: ${({ theme }) => theme.zIndexModal};
+  z-index: ${({ theme }) => theme.zIndexPanel};
   display: ${props => (props.showPanel ? 'block' : 'none')};
 `;
 const PanelHeader = styled.div`
@@ -120,6 +120,7 @@ export default function Panel({ showPanel }) {
               {data.map((project, id) => (
                 <ProjectLabel key={project.name} id={id} name={project.name} />
               ))}
+              <ProjectLabel key='Readme' id={4} name='README.md' type='md' />
             </PanelProjects>
           )}
         </div>

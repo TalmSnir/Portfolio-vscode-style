@@ -180,6 +180,7 @@ export default function SiteTheme({ children }) {
     ...colors[colorTheme],
     fsBodyB1: '18px',
     fsBodyB2: '12px',
+
     fsHeadingH1: '26px',
     fsHeadingH5: '11px',
 
@@ -202,8 +203,17 @@ export default function SiteTheme({ children }) {
     spacingXs: '1rem',
     spacingXxs: '0.5rem',
 
+    zIndexTooltip: '1200',
+    zIndexPanel: '1100',
     zIndexModal: '1000',
-    zIndexTab: '900',
+    zIndexTop: '800',
+    zIndexTab: '700',
+
+    bpSm: '375px',
+    bpMd: '700px',
+    bpLg: '1000px',
+    bpXl: '1200px',
+    bpXxl: '1440px',
   };
 
   return (

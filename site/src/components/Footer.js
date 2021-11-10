@@ -30,12 +30,25 @@ const LeftSide = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spacingXs};
+  .numbers {
+    @media screen and (max-width: ${({ theme }) => theme.bpSm}) {
+      display: none;
+    }
+  }
 `;
 
 const RightSide = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacingXs};
+  .numbers {
+    display: flex;
+    align-items: center;
+    gap: ${({ theme }) => theme.spacingXxs};
+    @media screen and (max-width: ${({ theme }) => theme.bpMd}) {
+      display: none;
+    }
+  }
 `;
 
 const IconWithText = styled.span`
@@ -51,9 +64,10 @@ export default function Footer() {
         <LeftSide>
           <IconWithText>
             <VscSourceControl />
-            main
+            <span>talmsnir@gmail.com</span>
           </IconWithText>
-          <IconWithText>
+
+          <IconWithText className='numbers'>
             <VscSync />
             0
             <VscArrowDown />
@@ -61,19 +75,21 @@ export default function Footer() {
             <VscArrowUp />
           </IconWithText>
 
-          <IconWithText>
+          <IconWithText className='numbers'>
             0
             <VscError />
             0
             <VscWarning />
           </IconWithText>
         </LeftSide>
-        <div>talmsnir@gmail.com</div>
+
         <RightSide>
-          <span>Ln 17, col 3 Spaces: 2021</span>
-          <span>UTF-8</span>
-          <span>LF</span>
-          <span>TalmSnir</span>
+          <div className='numbers'>
+            <span>Ln 17, col 3 Spaces: 2021</span>
+            <span>UTF-8</span>
+            <span>LF</span>
+            <span>TalmSnir</span>
+          </div>
           <VscFeedback />
           <VscBell />
         </RightSide>

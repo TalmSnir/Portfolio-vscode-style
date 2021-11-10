@@ -1,7 +1,10 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-
+  "short_name": "TalSnir",
+  "name": "Tal Snir's Portfolio",
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

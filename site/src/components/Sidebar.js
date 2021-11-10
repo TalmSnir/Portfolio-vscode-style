@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styled from 'styled-components';
-import { useToggle } from '../hooks';
 
 import { SidebarBottom, SidebarTop, SidebarSocial, Panel } from '.';
 import { IconContext } from 'react-icons';
@@ -18,21 +17,19 @@ const SidebarContainer = styled.div`
   grid-row: 2;
   grid-column: 1;
   position: relative;
+  z-index: ${({ theme }) => theme.zIndexTop};
 `;
 
 export default function SideBar() {
-  const [showPanel, setShowPanel] = useToggle(false);
+  const [showPanel, setShowPanel] = useState(false);
 
-  const handleClick = () => {
-    setShowPanel();
-  };
   return (
     <SidebarContainer>
       <IconContext.Provider
         value={{
           size: 24,
         }}>
-        <SidebarTop onClick={handleClick} />
+        <SidebarTop setShowPanel={setShowPanel} showPanel={showPanel} />
         <Panel showPanel={showPanel} />
         <SidebarSocial />
         <SidebarBottom />

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import { VscClose, VscFileCode } from 'react-icons/vsc';
+import { VscClose, VscFileCode, VscInfo } from 'react-icons/vsc';
+import { Context } from '../context/DataContext';
 const ProjectTop = styled.div`
-  position: fixed;
+  position: absolute;
   inline-size: 100%;
   z-index: ${({ theme }) => theme.zIndexTab};
   background: ${({ theme }) => theme.clrBase21};
@@ -25,7 +26,8 @@ const Label = styled.div`
 `;
 const LabelInner = styled.span`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+
   justify-content: space-between;
   gap: 0.2rem;
   overflow: hidden;
@@ -45,11 +47,20 @@ const CloseButton = styled.button`
   opacity: 0;
 `;
 export default function ProjectTab({ text, setShow }) {
+  let { setProject } = useContext(Context);
+  const handleClick = () => {
+    setProject(null);
+    setShow(false);
+  };
   return (
     <ProjectTop>
       <Label>
         <LabelInner>
-          <VscFileCode style={{ flexShrink: 0, color: 'yellow' }} />
+          {text === 'README.md' ? (
+            <VscInfo style={{ flexShrink: 0, color: 'cornflowerblue' }} />
+          ) : (
+            <VscFileCode style={{ flexShrink: 0, color: 'yellow' }} />
+          )}
           <span
             style={{
               overflow: 'hidden',
@@ -59,11 +70,10 @@ export default function ProjectTab({ text, setShow }) {
             {text}
           </span>
         </LabelInner>
-        <CloseButton onClick={() => setShow(false)}>
+        <CloseButton onClick={handleClick}>
           <VscClose style={{ flexShrink: 0, height: '16px', width: '16px' }} />
         </CloseButton>
       </Label>
     </ProjectTop>
   );
 }
-// VscFileMedia

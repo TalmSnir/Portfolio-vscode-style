@@ -1,18 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Project } from '.';
-import { Context } from '../context/DataContext';
 
-const MainContainer = styled.main`
+const MainWrapper = styled.main`
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: relative;
+  background: ${({ theme }) => theme.clrBase19};
+`;
+const MainInner = styled.div`
   block-size: 100%;
   inline-size: 100%;
-  background: ${({ theme }) => theme.clrBase19};
+
   grid-row: 2;
   grid-column: 2;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
-  scrollbar-width: thin;
 
+  scrollbar-width: thin;
   scrollbar-color: ${({ theme }) => ` ${theme.clrBase17} transparent `};
   &::-webkit-scrollbar {
     width: 12px;
@@ -28,31 +32,9 @@ const MainContainer = styled.main`
 `;
 
 export default function Main({ children }) {
-  const { data, project } = useContext(Context);
-  const [projectData, setProjectData] = useState(null);
-  const [showProject, setShowProject] = useState(true);
-
-  useEffect(() => {
-    if (project) {
-      const { name, homepage, html_url, description } = data[project];
-      setProjectData({
-        name: name.replaceAll('-', ' '),
-        repo: html_url,
-        site: homepage,
-        description: description,
-      });
-      setShowProject(true);
-    }
-  }, [project, data]);
-
   return (
-    <MainContainer>
-      {projectData && showProject && (
-        <Project projectData={projectData} setShow={setShowProject} />
-      )}
-      {children}
-    </MainContainer>
+    <MainWrapper id='main_outer'>
+      <MainInner id='main_inner'>{children}</MainInner>
+    </MainWrapper>
   );
 }
-// `https://raw.githubusercontent.com/TalmSnir/${name}/main/README.md`
-// {showSection && showSection==='designs'}

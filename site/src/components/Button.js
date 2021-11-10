@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 export const StyleButton = styled.button`
@@ -12,7 +12,7 @@ export const StyleButton = styled.button`
   block-size: 48px;
   inline-size: 48px;
   cursor: pointer;
-  opacity: ${props => (props.active ? 1 : 0.4)};
+  opacity: ${props => (props.isActive ? 1 : 0.4)};
   color: ${({ theme }) => theme.clrBase01};
   position: relative;
   &::before {
@@ -23,7 +23,7 @@ export const StyleButton = styled.button`
     block-size: 100%;
     inline-size: 2px;
     background-color: ${({ theme }) => theme.clrBase01};
-    display: ${props => (props.active ? 'block' : 'none')};
+    display: ${props => (props.isActive ? 'block' : 'none')};
   }
   &:hover::before {
     display: block;
@@ -36,24 +36,18 @@ export const StyleButton = styled.button`
 export default function Button({
   children,
   onClick = null,
-  active = false,
+  isActive = false,
   title,
   type = 'button',
 }) {
-  const [isActive, setIsActive] = useState(false);
-  useEffect(() => {
-    setIsActive(active);
-  }, [active]);
-
   const handleClick = () => {
     onClick && onClick();
-    setIsActive(prev => !prev);
   };
 
   return (
     <StyleButton
       onClick={handleClick}
-      active={isActive}
+      isActive={isActive}
       title={title}
       type={type}>
       {children}

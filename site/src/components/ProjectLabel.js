@@ -1,13 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { VscGist, VscCircleFilled } from 'react-icons/vsc';
+import { VscGist, VscCircleFilled, VscInfo } from 'react-icons/vsc';
 import { Context } from '../context/DataContext';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { FlexContainer } from '.';
+
 const Label = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  color: ${({ theme }) => theme.clrBase06};
+  text-decoration: none;
   cursor: pointer;
   padding: ${({ theme }) =>
     `${theme.spacingXxs}  ${theme.spacingXxs}  ${theme.spacingXxs} calc(${theme.spacingSm} + 0.5rem)`};
@@ -17,36 +20,39 @@ const Label = styled.div`
   }
 `;
 
-export default function ProjectLabel({ name, id }) {
+export default function ProjectLabel({ name, id, type = null }) {
   const [isActive, setIsActive] = useState(false);
   const { setProject, project } = useContext(Context);
   const handleClick = () => {
-    setProject(id);
+    setProject({ name, id });
   };
   useEffect(() => {
-    if (project) {
-      project !== id ? setIsActive(false) : setIsActive(true);
+    if (project != null) {
+      project.id !== id ? setIsActive(false) : setIsActive(true);
     }
   }, [project, id, setIsActive]);
   return (
-    <Label as={Link} to='/project' id={id} onClick={handleClick}>
-      <div
-        style={{
-          display: 'flex',
-          gap: '0.2rem',
-          alignItems: 'center',
-          width: '90%',
-        }}>
-        <VscGist />
+    <Label
+      as={NavLink}
+      to={`/projects/${id}/${name}`}
+      id={id}
+      onClick={handleClick}>
+      <FlexContainer gap='0.2rem' inlineSize='80%'>
+        {type === 'md' ? (
+          <VscInfo style={{ color: 'cornflowerblue' }} />
+        ) : (
+          <VscGist style={{ color: 'yellow' }} />
+        )}
         <span
           style={{
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
+            inlineSize: '90%',
           }}>
           {name.replaceAll('-', ' ')}
         </span>
-      </div>
+      </FlexContainer>
       {isActive && (
         <VscCircleFilled
           style={{

@@ -5,16 +5,17 @@ import {
   VscCheck,
   VscCloudDownload,
 } from 'react-icons/vsc';
-import { Button } from '.';
+import { Tooltip, LinkWithTooltip } from '.';
 import { Context } from '../context/DataContext';
 import { useClickOutside } from '../hooks';
 import styled from 'styled-components';
 
+import Profile from '../assets/profile.jpg';
 const ColorThemeModal = styled.div`
   position: absolute;
   left: 100%;
   bottom: 0;
-  z-index: ${({ theme }) => theme.zIndexModal};
+  z-index: ${({ theme }) => theme.zIndexPanel};
   block-size: 200px;
   inline-size: 240px;
   background-color: ${({ theme }) => theme.clrBase21};
@@ -25,7 +26,7 @@ const ProfileModal = styled.div`
   position: absolute;
   left: 100%;
   bottom: 0;
-  z-index: ${({ theme }) => theme.zIndexModal};
+  z-index: ${({ theme }) => theme.zIndexPanel};
   block-size: 160px;
   inline-size: 240px;
   background-color: ${({ theme }) => theme.clrBase21};
@@ -50,6 +51,16 @@ const Separator = styled.div`
   block-size: 0.5px;
   opacity: 0.5;
 `;
+
+const ProfileImg = styled.div`
+  block-size: 24px;
+  inline-size: 24px;
+  background-image: url(${Profile});
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+`;
 export default function SidebarBottom() {
   const colorRef = useRef(null);
   const profileRef = useRef(null);
@@ -72,22 +83,26 @@ export default function SidebarBottom() {
     } else setShowProfileModal(true);
   };
 
-  useClickOutside(colorRef, handleClickColor);
   useClickOutside(profileRef, handleClickProfile);
+  useClickOutside(colorRef, handleClickColor);
   return (
     <div style={{ position: 'relative' }}>
-      <Button
-        title='About me'
+      <LinkWithTooltip
         onClick={handleClickProfile}
-        active={showProfileModal}>
-        <VscAccount />
-      </Button>
-      <Button
+        as='button'
+        className={`${showProfileModal ? 'active' : ''}`}>
+        {showProfileModal ? <ProfileImg /> : <VscAccount />}
+        <Tooltip className='tooltip'>CV</Tooltip>
+      </LinkWithTooltip>
+
+      <LinkWithTooltip
         title='change Theme'
         onClick={handleClickColor}
-        active={showColorModal}>
+        as='button'
+        className={`${showColorModal ? 'active' : ''}`}>
         <VscGear />
-      </Button>
+        <Tooltip className='tooltip'>color theme</Tooltip>
+      </LinkWithTooltip>
       {showProfileModal && (
         <ProfileModal ref={profileRef}>
           <Text>Download CV</Text>

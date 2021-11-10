@@ -2,7 +2,7 @@ import React from 'react';
 import { FaDribbble, FaCodepen, FaFigma, FaLinkedinIn } from 'react-icons/fa';
 import { VscGithubAlt } from 'react-icons/vsc';
 
-import { StyleButton, StyledLink } from '.';
+import { Tooltip, LinkWithTooltip } from '.';
 import { socials } from '../socialsData';
 
 export default function SidebarSocial() {
@@ -18,13 +18,15 @@ export default function SidebarSocial() {
         };
         const Icon = iconName[platform.name];
         return (
-          <StyleButton
+          <LinkWithTooltip
+            as='a'
             key={platform.name}
-            as={StyledLink}
             href={platform.url}
-            title={platform.name}>
+            target='_blank'
+            rel='noreferrer'>
             <Icon />
-          </StyleButton>
+            <Tooltip className='tooltip'>{platform.name}</Tooltip>
+          </LinkWithTooltip>
         );
       })}
     </div>

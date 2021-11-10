@@ -12,15 +12,29 @@ const HeaderContainer = styled.header`
   background-color: ${({ theme }) => theme.clrBase21};
   color: ${({ theme }) => theme.clrBase06};
   letter-spacing: 0.04em;
-
   position: relative;
+  @media screen and (max-width: ${({ theme }) => theme.bpSm}) {
+    background-color: ${({ theme }) => theme.clrBase17};
+  }
 `;
 const HeaderSections = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacingXs};
   font-size: ${({ theme }) => theme.fsHeadingH5};
   text-transform: capitalize;
+  @media screen and (max-width: ${({ theme }) => theme.bpSm}) {
+    span {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    span:last-of-type {
+      display: none;
+    }
+  }
 `;
 
 export default function Header() {
@@ -28,8 +42,10 @@ export default function Header() {
     <HeaderContainer>
       <Logo
         style={{
-          maxWidth: '32px',
-          maxHeight: '32px',
+          minWidth: '32px',
+          minHeight: '32px',
+          width: '32px',
+          height: '32px',
           stroke: 'rgba(0, 122, 204, 1)',
           fill: 'rgba(0, 122, 204, 1)',
         }}

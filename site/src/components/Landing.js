@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FlexContainer } from '.';
-import Hero from '../assets/hero.svg';
+import { ReactComponent as Hero } from '../assets/hero.svg';
 const PrimaryButton = styled.button`
   appearance: none;
   outline: 0;
@@ -14,25 +14,42 @@ const PrimaryButton = styled.button`
   text-transform: capitalize;
 `;
 export default function Landing() {
+  let interval;
+  const showQuickTour = () => {
+    if (interval) clearInterval(interval);
+    const tooltips = [...document.querySelectorAll('.tooltip')];
+    let idx = 0;
+    interval = setInterval(() => {
+      let tooltip = tooltips[idx];
+      let parentElement = tooltip.parentElement;
+      parentElement.classList.add('quickTour');
+      setTimeout(() => {
+        parentElement.classList.remove('quickTour');
+      }, 1000);
+      idx += 1;
+      if (idx === tooltips.length) clearInterval(interval);
+    }, 1100);
+  };
+
   return (
-    <FlexContainer style={{ height: '100%' }} padding='2rem'>
+    <FlexContainer style={{ height: '100%' }} padding='2rem' gap='2rem' bpMdCol>
       <FlexContainer
         gap='3rem'
         dir='column'
         ai='flex-start'
-        style={{ flex: '1 1 50%' }}>
-        <FlexContainer gap='0.5rem' dir='column' ai='flex-start'>
-          <h1>Welcome To My Playground</h1>
-          <h2>I'm Tal Snir</h2>
-        </FlexContainer>
+        style={{ flex: '1 1 50%' }}
+        bpMdCol>
         <div>
-          <p>a frontend developer with passion for ui design</p>
+          <h1 style={{ marginBlockEnd: '1rem' }}>Welcome To My Playground</h1>
+          <h2>I'm Tal Snir</h2>
+        </div>
+        <div>
+          <p>A frontend developer with a passion for ui design</p>
           <p>explore my portfolio using the tabs on the left</p>
         </div>
-
-        <PrimaryButton>show quick tour</PrimaryButton>
+        <PrimaryButton onClick={showQuickTour}>show quick tour</PrimaryButton>
       </FlexContainer>
-      <img src={Hero} alt='hero' style={{ flex: '1 1 50%', maxWidth: '50%' }} />
+      <Hero style={{ flex: '1 1 50%', maxHeight: '100%' }} />
     </FlexContainer>
   );
 }

@@ -15,8 +15,11 @@ import ProjectLabel from './ProjectLabel';
 import ProjectTab from './ProjectTab';
 import ImgGrid from './ImgGrid';
 import Landing from './Landing';
-import { FlexContainer } from './FlexContainer';
 import { Header1, Paragraph, StyledLink } from './BaseComponents';
+import { Tooltip, LinkWithTooltip } from './Tooltip';
+import Modal from './ImgModal';
+import { FlexContainer } from './FlexContainer';
+import Readme from './Readme';
 export {
   Button,
   Main,
@@ -39,4 +42,8 @@ export {
   ImgGrid,
   Landing,
   FlexContainer,
+  Modal,
+  Tooltip,
+  LinkWithTooltip,
+  Readme,
 };

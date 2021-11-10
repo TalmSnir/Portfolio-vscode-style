@@ -1,29 +1,28 @@
-import SiteTheme from './SiteTheme';
 import { Footer, Sidebar, Main, SiteContainer, Header } from './components';
-import DataContext from './context/DataContext';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Context } from './context/DataContext';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { ImgGrid, Project, Landing } from './components';
+import { useContext } from 'react';
 function App() {
+  const { project } = useContext(Context);
   return (
-    <Router>
-      <DataContext>
-        <SiteTheme>
-          <SiteContainer>
-            <Header />
-            <Sidebar />
-            <Footer />
+    <SiteContainer>
+      <Header />
+      <Sidebar />
+      <Footer />
 
-            <Main>
-              <Switch>
-                <Route exact path='/' component={Landing} />
-                <Route exact path='/designs' component={ImgGrid} />d
-                <Route path='/projects' component={Project} />
-              </Switch>
-            </Main>
-          </SiteContainer>
-        </SiteTheme>
-      </DataContext>
-    </Router>
+      <Main>
+        <Routes>
+          <Route path='/' element={<Landing />} />
+          <Route path='/designs' element={<ImgGrid />} />
+          <Route path='/projects' element={<Project />} />
+          <Route
+            path='/projects/:id/:name'
+            element={project ? <Project /> : <Navigate to='/projects' />}
+          />
+        </Routes>
+      </Main>
+    </SiteContainer>
   );
 }
 
