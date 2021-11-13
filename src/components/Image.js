@@ -58,6 +58,7 @@ export const ImgControls = styled.div`
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 `;
+
 export const ControlButton = styled.button`
   appearance: none;
   border: 0;
@@ -82,12 +83,16 @@ export const ControlButton = styled.button`
   }
 `;
 export default function Image({ src, handleClick }) {
-  const [loading, isLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
+
   return (
-    <ImgContainer loading={loading ? 'load' : ''}>
-      <Img onLoad={() => isLoading(false)} src={src} alt='grid' />
+    <ImgContainer loading={loading ? 'load' : ''} className='image-container'>
+      <Img onLoad={() => setLoading(false)} src={src} alt='grid' />
       <ImgControls>
-        <ControlButton onClick={() => handleClick(src)}>
+        <ControlButton
+          onClick={e => {
+            handleClick(e, src);
+          }}>
           <VscScreenFull />
         </ControlButton>
       </ImgControls>

@@ -1,45 +1,39 @@
 <svg width="1027" height="930" viewBox="0 0 1027 930" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5 925L5 125H488.601L605 125V238V925H5Z" fill="black" stroke="#007ACC" stroke-width="10"/>
-<path d="M103 200L53 250L103 300" stroke="white" stroke-width="10"/>
-<path d="M143 300L193 250L143 200" stroke="white" stroke-width="10"/>
-<path d="M465 348H53V388H465V348Z" fill="white"/>
-<path d="M465 436H53V476H465V436Z" fill="white"/>
-<path d="M397 524H53V564H397V524Z" fill="white"/>
-<path d="M442 612H53V652H442V612Z" fill="white"/>
-<path d="M419 700H53V740H419V700Z" fill="white"/>
-<path d="M103 788L53 838L103 888" stroke="white" stroke-width="10"/>
-<path d="M205 788L135 888" stroke="white" stroke-width="10"/>
-<path d="M237 888L287 838L237 788" stroke="white" stroke-width="10"/>
-<path d="M478 426H66V466H478V426Z" fill="#007ACC"/>
-<path d="M478 513H66V553H478V513Z" fill="#007ACC"/>
-<path d="M422 805V5H905.601L963.801 61.5L1022 118V805H422Z" fill="black" stroke="#007ACC" stroke-width="10"/>
-<path d="M868 76H470V118H868V76Z" fill="white"/>
-<path d="M869 150H470V193H869V150Z" fill="white"/>
-<path d="M818 225H470V507H818V225Z" fill="white"/>
-<path d="M848 539H470V582H848V539Z" fill="white"/>
-<path d="M972 614H470V657H972V614Z" fill="white"/>
-<path d="M972 689H470V732H972V689Z" fill="white"/>
-<path d="M888 65H490V107H888V65Z" fill="#007ACC"/>
-<path d="M838 203H490V485H838V203Z" fill="#007ACC"/>
-<path d="M909 118V18L1012 118H909Z" fill="#007ACC" stroke="#007ACC" stroke-width="10"/>
-<path d="M422 805V5H905.601L963.801 61.5L1022 118V805H422Z" fill="black" stroke="#007ACC" stroke-width="10"/>
-<path d="M868 76H470V118H868V76Z" fill="white"/>
-<path d="M869 150H470V193H869V150Z" fill="white"/>
-<path d="M818 225H470V507H818V225Z" fill="white"/>
-<path d="M848 539H470V582H848V539Z" fill="white"/>
-<path d="M972 614H470V657H972V614Z" fill="white"/>
-<path d="M972 689H470V732H972V689Z" fill="white"/>
-<path d="M888 65H490V107H888V65Z" fill="#007ACC"/>
-<path d="M838 203H490V485H838V203Z" fill="#007ACC"/>
-<path d="M909 118V18L1012 118H909Z" fill="#007ACC" stroke="#007ACC" stroke-width="10"/>
-<path d="M422 805V5H905.601L963.801 61.5L1022 118V805H422Z" fill="black" stroke="#007ACC" stroke-width="10"/>
-<path d="M868 76H470V118H868V76Z" fill="white"/>
-<path d="M869 150H470V193H869V150Z" fill="white"/>
-<path d="M818 225H470V507H818V225Z" fill="white"/>
-<path d="M848 539H470V582H848V539Z" fill="white"/>
-<path d="M972 614H470V657H972V614Z" fill="white"/>
-<path d="M972 689H470V732H972V689Z" fill="white"/>
-<path d="M888 65H490V107H888V65Z" fill="#007ACC"/>
-<path d="M830 212H482V494H830V212Z" fill="#007ACC"/>
-<path d="M909 118V18L1012 118H909Z" fill="#007ACC" stroke="#007ACC" stroke-width="10"/>
+<g id="projectFiles">
+<g id="leftFile">
+<path className='bg' d="M5 925L5 125H488.601L605 125V238V925H5Z" fill="black" stroke="#007ACC" stroke-width="10"/>
+<g id="lines">
+<g id="open-code">
+<path id="Vector 18" d="M103 200L53 250L103 300" stroke="white" stroke-width="10"/>
+<path id="Vector 19" d="M143 300L193 250L143 200" stroke="white" stroke-width="10"/>
+</g>
+<path id="Vector 20" d="M465 348H53V388H465V348Z" fill="white"/>
+<path id="Vector 21" d="M465 436H53V476H465V436Z" fill="white"/>
+<path id="Vector 22" d="M397 524H53V564H397V524Z" fill="white"/>
+<path id="Vector 23" d="M442 612H53V652H442V612Z" fill="white"/>
+<path id="Vector 24" d="M419 700H53V740H419V700Z" fill="white"/>
+<g id="closing-code">
+<path id="Vector 18_2" d="M103 788L53 838L103 888" stroke="white" stroke-width="10"/>
+<path id="Vector 20_2" d="M205 788L135 888" stroke="white" stroke-width="10"/>
+<path id="Vector 19_2" d="M237 888L287 838L237 788" stroke="white" stroke-width="10"/>
+</g>
+</g>
+<path className='shiftElement' d="M478 426H66V466H478V426Z" fill="#007ACC"/>
+<path className='shiftElement' d="M478 513H66V553H478V513Z" fill="#007ACC"/>
+</g>
+<g id="rightFile">
+<path className='bg' d="M422 805V5H905.601L963.801 61.5L1022 118V805H422Z" fill="black" stroke="#007ACC" stroke-width="10"/>
+<g id="lines_2">
+<path id="Vector 11" d="M868 76H470V118H868V76Z" fill="white"/>
+<path id="Vector 12" d="M869 150H470V193H869V150Z" fill="white"/>
+<path id="Vector 13" d="M818 225H470V507H818V225Z" fill="white"/>
+<path id="Vector 14" d="M848 539H470V582H848V539Z" fill="white"/>
+<path id="Vector 15" d="M972 614H470V657H972V614Z" fill="white"/>
+<path id="Vector 16" d="M972 689H470V732H972V689Z" fill="white"/>
+</g>
+<path className='shiftElement' d="M888 65H490V107H888V65Z" fill="#007ACC"/>
+<path className='shiftElement' d="M830 212H482V494H830V212Z" fill="#007ACC"/>
+<path id="corner" d="M909 118V18L1012 118H909Z" fill="#007ACC" stroke="#007ACC" stroke-width="10"/>
+</g>
+</g>
 </svg>

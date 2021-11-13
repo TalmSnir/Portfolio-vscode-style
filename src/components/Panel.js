@@ -32,6 +32,7 @@ const PanelHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  text-transform: uppercase;
   padding: ${({ theme }) => theme.spacingXxs};
 `;
 const PanelTop = styled.div`

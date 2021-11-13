@@ -6,12 +6,16 @@ import { ReactComponent as ProjectFilesImg } from '../assets/projectFiles.svg';
 import { Readme } from '.';
 const Container = styled.div``;
 const InnerContainer = styled.div`
+  max-inline-size: 1400px;
   padding: ${({ theme }) => `${theme.spacingMd} ${theme.spacingXs}  `};
   @media screen and (min-width: ${({ theme }) => theme.bpSm}) {
     padding: ${({ theme }) => `${theme.spacingMd} ${theme.spacingSm}  `};
   }
   @media screen and (min-width: ${({ theme }) => theme.bpMd}) {
     padding: ${({ theme }) => `${theme.spacingMd} ${theme.spacingMd}  `};
+  }
+  @media screen and (min-width: ${({ theme }) => theme.bpXl}) {
+    padding: ${({ theme }) => `${theme.spacingMd} ${theme.spacingXl}  `};
   }
   display: flex;
   flex-direction: column;
@@ -68,7 +72,20 @@ const LinksContainer = styled.div`
     }
   }
 `;
+const FilesSvg = styled(ProjectFilesImg)`
+  max-height: 100%;
+  max-width: 100%;
 
+  #corner,
+  .shiftElement {
+    fill: ${({ theme }) => theme.clrAccentBlue};
+    stroke: ${({ theme }) => theme.clrAccentBlue};
+  }
+  .bg {
+    fill: ${({ theme }) => theme.clrBgSidebar};
+    stroke: ${({ theme }) => theme.clrAccentBlue};
+  }
+`;
 export default function Project() {
   const { data, project } = useContext(Context);
   const [projectData, setProjectData] = useState(null);
@@ -105,7 +122,7 @@ export default function Project() {
               height: '60vh',
               width: '80%',
             }}>
-            <ProjectFilesImg style={{ maxHeight: '100%', maxWidth: '100%' }} />
+            <FilesSvg />
           </div>
         </NoProjectContainer>
       )}

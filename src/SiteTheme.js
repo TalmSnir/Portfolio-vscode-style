@@ -95,16 +95,16 @@ html{
   padding: 0;
   margin: 0;
   scrollbar-width: thin;
-  scrollbar-color: ${({ theme }) => ` ${theme.clrBase17} transparent `};
+  scrollbar-color: ${({ theme }) => ` ${theme.clrBgSidebar} transparent `};
   &::-webkit-scrollbar {
     width: 12px;
   }
   &::-webkit-scrollbar-track {
     background: transparent;
-    border-left: ${({ theme }) => `0.5px solid ${theme.clrBase17}`};
+    border-left: ${({ theme }) => `0.5px solid ${theme.clrBgSidebar}`};
   }
   &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.clrBase17};
+    background: ${({ theme }) => theme.clrBgSidebar};
   }
 }
 body {

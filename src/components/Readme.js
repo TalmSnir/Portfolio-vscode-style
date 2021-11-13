@@ -7,10 +7,11 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   white-space: pre-wrap;
-  gap: ${({ theme }) => theme.spacingXs};
+
+  gap: ${({ theme }) => theme.spacingSm};
   > * {
     width: 50%;
-
+    flex-basis: 50%;
     padding: 1rem;
   }
   @media screen and (max-width: ${({ theme }) => theme.bpMd}) {

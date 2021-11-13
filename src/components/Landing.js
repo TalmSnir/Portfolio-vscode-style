@@ -28,6 +28,8 @@ const LandingContainer = styled.div`
   padding: ${props => props.padding || ''};
   isolation: isolate;
   height: 100%;
+  max-inline-size: 1400px;
+  margin: 0 auto;
   ${({ bpLgCol }) => {
     if (bpLgCol)
       return css`
@@ -81,7 +83,7 @@ export default function Landing() {
   };
 
   return (
-    <LandingContainer padding='2rem' gap='2rem' bpLgCol>
+    <LandingContainer padding='2rem' gap='4rem' bpLgCol>
       <FlexContainer
         gap='3rem'
         dir='column'
@@ -97,7 +99,7 @@ export default function Landing() {
         <div>
           <Paragraph>
             A frontend developer with a passion for UI design.
-            <br />I love to create tools to help others ease their day to day
+            <br />I love to create tools to help others ease their day-to-day
             work in the fields of design and development.
           </Paragraph>
         </div>
