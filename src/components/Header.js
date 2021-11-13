@@ -9,12 +9,14 @@ const HeaderContainer = styled.header`
   grid-column: 1/-1;
   grid-row: 1;
   padding: ${({ theme }) => `calc(${theme.spacingXxs}/2) ${theme.spacingXxs}`};
-  background-color: ${({ theme }) => theme.clrBase21};
-  color: ${({ theme }) => theme.clrBase06};
+  background-color: ${({ theme }) => theme.clrBgHeader};
+  color: ${({ theme }) => theme.clrText02};
   letter-spacing: 0.04em;
   position: relative;
-  @media screen and (max-width: ${({ theme }) => theme.bpSm}) {
-    background-color: ${({ theme }) => theme.clrBase17};
+
+  svg path {
+    stroke: ${({ theme }) => theme.clrAccentBlue};
+    fill: ${({ theme }) => theme.clrAccentBlue};
   }
 `;
 const HeaderSections = styled.div`
@@ -46,8 +48,6 @@ export default function Header() {
           minHeight: '32px',
           width: '32px',
           height: '32px',
-          stroke: 'rgba(0, 122, 204, 1)',
-          fill: 'rgba(0, 122, 204, 1)',
         }}
       />
 

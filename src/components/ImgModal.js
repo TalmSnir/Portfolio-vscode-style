@@ -3,21 +3,23 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { VscScreenNormal } from 'react-icons/vsc';
 import { useClickOutside } from '../hooks';
-import { ImgControls, ControlButton } from './ImgGrid';
+import { ImgControls, ControlButton } from './Image';
+
 const ImgModalContainer = styled.div`
-  position: absolute;
+  position: ${props => (props.width < 500 ? 'fixed' : 'absolute')};
   inset: 0;
   backdrop-filter: blur(3px);
+  z-index: ${({ theme }) => theme.zIndexModal};
 `;
 const ImgModal = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  inline-size: 80%;
-  block-size: 80%;
-  box-shadow: 0 0 4px ${({ theme }) => theme.clrAccentBlue06};
-  background-color: ${({ theme }) => theme.clrBase21};
+  inline-size: ${props => (props.width < 500 ? '100%' : '80%')};
+  block-size: ${props => (props.width < 500 ? '100%' : '80%')};
+  box-shadow: 0 0 4px ${({ theme }) => theme.clrAccentBlue};
+  background-color: ${({ theme }) => theme.clrBgMain};
   img {
     width: 100%;
     height: ${({ theme }) => `calc(100% - ${theme.spacingXxs}*2 - 24px)`};
@@ -36,10 +38,13 @@ const ImgModal = styled.div`
 
 export default function Modal({ src, handleClick }) {
   const modalRef = useRef(null);
+  let container = document.querySelector('#main_outer');
+
   useClickOutside(modalRef, handleClick);
+
   return ReactDOM.createPortal(
-    <ImgModalContainer>
-      <ImgModal ref={modalRef}>
+    <ImgModalContainer width={window.innerWidth}>
+      <ImgModal ref={modalRef} width={window.innerWidth}>
         <ImgControls>
           <ControlButton onClick={handleClick}>
             <VscScreenNormal />
@@ -48,6 +53,6 @@ export default function Modal({ src, handleClick }) {
         <img src={src} alt='modal' />
       </ImgModal>
     </ImgModalContainer>,
-    document.querySelector('#main_outer')
+    container
   );
 }

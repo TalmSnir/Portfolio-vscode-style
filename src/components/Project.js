@@ -6,7 +6,13 @@ import { ReactComponent as ProjectFilesImg } from '../assets/projectFiles.svg';
 import { Readme } from '.';
 const Container = styled.div``;
 const InnerContainer = styled.div`
-  padding: ${({ theme }) => `${theme.spacingMd} ${theme.spacingSm}  `};
+  padding: ${({ theme }) => `${theme.spacingMd} ${theme.spacingXs}  `};
+  @media screen and (min-width: ${({ theme }) => theme.bpSm}) {
+    padding: ${({ theme }) => `${theme.spacingMd} ${theme.spacingSm}  `};
+  }
+  @media screen and (min-width: ${({ theme }) => theme.bpMd}) {
+    padding: ${({ theme }) => `${theme.spacingMd} ${theme.spacingMd}  `};
+  }
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacingSm};
@@ -22,11 +28,35 @@ const LinksContainer = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.spacingSm};
   a {
+    --color: ${({ theme }) => theme.clrAccentBlue};
+
     display: block;
-    color: inherit;
+    position: relative;
+    color: var(--color);
+    font-size: ${({ theme }) => theme.fsBodyB1};
+    font-weight: bold;
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: color 0.1s ease;
+
+    &:hover,
+    &:focus-visible {
+      --color: ${({ theme }) => theme.clrText01};
+      outline: 0;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background: var(--color);
+      transition: background-color 0.1s ease;
+    }
   }
   a:first-child {
-    position: relative;
     &::before {
       content: '';
       position: absolute;
@@ -34,7 +64,7 @@ const LinksContainer = styled.div`
       right: ${({ theme }) => `calc(${theme.spacingSm}/-2)`};
       width: 0.5px;
       height: 100%;
-      background-color: ${({ theme }) => theme.clrBase01};
+      background-color: ${({ theme }) => theme.clrText01};
     }
   }
 `;
@@ -95,16 +125,9 @@ export default function Project() {
                     live site
                   </a>
                   <a href={projectData.repo} target='_blank' rel='noreferrer'>
-                    repo link
+                    github repo
                   </a>
                 </LinksContainer>
-
-                <iframe
-                  src={projectData.site}
-                  frameBorder='0'
-                  title='project live site'
-                  allow='clipboard-read; clipboard-write'
-                  style={{ height: '100vh', width: '100%' }}></iframe>
               </>
             )}
           </InnerContainer>

@@ -1,4 +1,4 @@
-# A demo of `react-markdown`
+# A curated list of my favorites projects
 
 `react-markdown` is a markdown component for React.
 

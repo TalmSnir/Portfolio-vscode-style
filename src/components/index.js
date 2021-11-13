@@ -10,17 +10,25 @@ import SiteContainer from './SiteContainer';
 import Project from './Project';
 import Panel from './Panel';
 import Header from './Header';
-import About from './About';
+import Image from './Image';
+
 import ProjectLabel from './ProjectLabel';
 import ProjectTab from './ProjectTab';
 import ImgGrid from './ImgGrid';
 import Landing from './Landing';
-import { Header1, Paragraph, StyledLink } from './BaseComponents';
+import {
+  Header1,
+  Header2,
+  Paragraph,
+  StyledLink,
+  FlexContainer,
+} from './BaseComponents';
 import { Tooltip, LinkWithTooltip } from './Tooltip';
 import Modal from './ImgModal';
-import { FlexContainer } from './FlexContainer';
+
 import Readme from './Readme';
 export {
+  Image,
   Button,
   Main,
   Sidebar,
@@ -33,9 +41,9 @@ export {
   Panel,
   Header,
   StyleButton,
-  About,
   ProjectLabel,
   Header1,
+  Header2,
   Paragraph,
   StyledLink,
   ProjectTab,

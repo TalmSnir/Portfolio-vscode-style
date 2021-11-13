@@ -7,7 +7,7 @@ const ProjectTop = styled.div`
   position: absolute;
   inline-size: 100%;
   z-index: ${({ theme }) => theme.zIndexTab};
-  background: ${({ theme }) => theme.clrBase21};
+  background: ${({ theme }) => theme.clrBgHeader};
 `;
 const Label = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ const Label = styled.div`
   padding: ${({ theme }) => theme.spacingXxs};
   inline-size: 160px;
 
-  background: ${({ theme }) => theme.clrBase18};
+  background: ${({ theme }) => theme.clrBgProjectTab};
   &:hover button,
   &:focus button {
     opacity: 1;
@@ -33,6 +33,16 @@ const LabelInner = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  .icon {
+    &--info {
+      flex-shrink: 0;
+      color: ${({ theme }) => theme.clrAccentBlue};
+    }
+    &--file {
+      flex-shrink: 0;
+      color: ${({ theme }) => theme.clrAccentYellow};
+    }
+  }
 `;
 const CloseButton = styled.button`
   appearance: none;
@@ -57,9 +67,9 @@ export default function ProjectTab({ text, setShow }) {
       <Label>
         <LabelInner>
           {text === 'README.md' ? (
-            <VscInfo style={{ flexShrink: 0, color: 'cornflowerblue' }} />
+            <VscInfo className='icon--info' />
           ) : (
-            <VscFileCode style={{ flexShrink: 0, color: 'yellow' }} />
+            <VscFileCode className='icon--file' />
           )}
           <span
             style={{

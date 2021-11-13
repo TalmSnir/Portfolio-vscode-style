@@ -19,8 +19,8 @@ import { ProjectLabel } from '.';
 const PanelContainer = styled.aside`
   block-size: 100%;
   inline-size: 240px;
-  background-color: ${({ theme }) => theme.clrBase21};
-  color: ${({ theme }) => theme.clrBase06};
+  background-color: ${({ theme }) => theme.clrBgPanel};
+  color: ${({ theme }) => theme.clrText02};
   font-size: ${({ theme }) => theme.fsHeadingH5};
   position: absolute;
   top: 0;
@@ -40,8 +40,8 @@ const PanelTop = styled.div`
   justify-content: space-between;
   padding: ${({ theme }) => `0.2rem ${theme.spacingXxs}`};
 
-  background-color: ${({ theme }) => theme.clrBase17};
-  color: ${({ theme }) => theme.clrBase06};
+  background-color: ${({ theme }) => theme.clrBgPanelTop};
+  color: ${({ theme }) => theme.clrText02};
 `;
 const PanelTopIcons = styled.div`
   display: flex;

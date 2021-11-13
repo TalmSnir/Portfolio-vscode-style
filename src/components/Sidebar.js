@@ -11,7 +11,7 @@ const SidebarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spacingXs};
-  background: ${({ theme }) => theme.clrBase17};
+  background: ${({ theme }) => theme.clrBgSidebar};
   inline-size: 50px;
   block-size: 100%;
   grid-row: 2;

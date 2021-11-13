@@ -9,14 +9,27 @@ const Label = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: ${({ theme }) => theme.clrBase06};
+  color: ${({ theme }) => theme.clrText02};
   text-decoration: none;
   cursor: pointer;
   padding: ${({ theme }) =>
     `${theme.spacingXxs}  ${theme.spacingXxs}  ${theme.spacingXxs} calc(${theme.spacingSm} + 0.5rem)`};
 
-  &:hover {
-    background-color: ${({ theme }) => theme.clrBase17};
+  &:hover,
+  &.active {
+    background-color: ${({ theme }) => theme.clrBgPanelHover};
+  }
+
+  .icon {
+    &--info {
+      fill: ${({ theme }) => theme.clrAccentBlue};
+    }
+    &--file {
+      fill: ${({ theme }) => theme.clrAccentYellow};
+    }
+    &--circle {
+      fill: ${({ theme }) => theme.clrAccentGreen};
+    }
   }
 `;
 
@@ -36,12 +49,13 @@ export default function ProjectLabel({ name, id, type = null }) {
       as={NavLink}
       to={`/projects/${id}/${name}`}
       id={id}
+      className={isActive ? 'active' : ''}
       onClick={handleClick}>
       <FlexContainer gap='0.2rem' inlineSize='80%'>
         {type === 'md' ? (
-          <VscInfo style={{ color: 'cornflowerblue' }} />
+          <VscInfo className='icon--info' />
         ) : (
-          <VscGist style={{ color: 'yellow' }} />
+          <VscGist className='icon--file' />
         )}
         <span
           style={{
@@ -55,11 +69,11 @@ export default function ProjectLabel({ name, id, type = null }) {
       </FlexContainer>
       {isActive && (
         <VscCircleFilled
+          className='icon--circle'
           style={{
             flexShrink: 0,
             width: '12px',
             height: '12px',
-            color: 'rgba(115, 201, 145, 1)',
           }}
         />
       )}

@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   white-space: pre-wrap;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacingXs};
   > * {
     width: 50%;
 
@@ -15,11 +15,20 @@ const Container = styled.div`
   }
   @media screen and (max-width: ${({ theme }) => theme.bpMd}) {
     flex-direction: column;
+    justify-content: flex-start;
+    gap: ${({ theme }) => theme.spacingSm};
+    height: 130vh;
+    & > * {
+      overflow-y: auto;
+      width: 100%;
+      height: 50%;
+    }
   }
 `;
 const MarkdownContainer = styled.div`
-  background-color: ${({ theme }) => theme.clrBase01};
-  color: ${({ theme }) => theme.clrBase20};
+  background-color: ${({ theme }) => theme.clrBgSidebar};
+  color: ${({ theme }) => theme.clrWhite};
+
   ul {
     margin-block-end: 1em;
     padding-inline-start: 40px;
@@ -36,6 +45,8 @@ const MarkdownRawContainer = styled.textarea`
   background-color: transparent;
   color: ${({ theme }) => theme.clrBase01};
   resize: none;
+  align-self: stretch;
+  flex: 1;
 `;
 export default function Readme() {
   const [markdownText, setMarkdownText] = useState(null);

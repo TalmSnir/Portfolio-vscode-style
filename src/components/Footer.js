@@ -17,8 +17,8 @@ const FooterContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.clrBase12};
-  color: ${({ theme }) => theme.clrBase01};
+  background-color: ${({ theme }) => theme.clrBgFooter};
+  color: ${({ theme }) => theme.clrWhite};
   font-size: ${({ theme }) => theme.fsBodyB2};
   padding: ${({ theme }) => `0.2rem ${theme.spacingXs}`};
   grid-row: -1;
