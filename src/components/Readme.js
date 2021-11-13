@@ -40,10 +40,10 @@ const MarkdownContainer = styled.div`
 `;
 const MarkdownRawContainer = styled.textarea`
   appearance: none;
-  border: 0.5px solid ${({ theme }) => theme.clrBase01};
+  border: 0.5px solid ${({ theme }) => theme.clrText01};
   outline: 0;
   background-color: transparent;
-  color: ${({ theme }) => theme.clrBase01};
+  color: ${({ theme }) => theme.clrText01};
   resize: none;
   align-self: stretch;
   flex: 1;
