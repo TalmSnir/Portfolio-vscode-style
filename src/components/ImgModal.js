@@ -40,7 +40,7 @@ const ImgModalContainer = styled.div`
       `;
     }
     return css`
-      ${scaleOut} 0.4s ease-in-out
+      ${scaleOut} 0.2s ease-in-out
     `;
   }};
 `;

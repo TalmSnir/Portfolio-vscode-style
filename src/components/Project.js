@@ -60,12 +60,12 @@ const LinksContainer = styled.div`
       transition: background-color 0.1s ease;
     }
   }
-  a:first-child {
+  a:nth-child(2) {
     &::before {
       content: '';
       position: absolute;
       top: 0;
-      right: ${({ theme }) => `calc(${theme.spacingSm}/-2)`};
+      left: ${({ theme }) => `calc(${theme.spacingSm}/-2)`};
       width: 0.5px;
       height: 100%;
       background-color: ${({ theme }) => theme.clrText01};
@@ -138,9 +138,11 @@ export default function Project() {
                 <Header1>{projectData.name}</Header1>
                 <Paragraph>{projectData.description}</Paragraph>
                 <LinksContainer>
-                  <a href={projectData.site} target='_blank' rel='noreferrer'>
-                    live site
-                  </a>
+                  {projectData.site && (
+                    <a href={projectData.site} target='_blank' rel='noreferrer'>
+                      live site
+                    </a>
+                  )}
                   <a href={projectData.repo} target='_blank' rel='noreferrer'>
                     github repo
                   </a>

@@ -32,7 +32,6 @@ const ImgContainer = styled.div`
 
         background-size: 200% 100%;
         background-position: 50% 0;
-        height: 40vh;
         animation: ${loading} 1s infinite;
       `;
   }}
@@ -42,6 +41,8 @@ const Img = styled.img`
   display: block;
   height: 100%;
   width: 100%;
+  min-height: 100%;
+  min-width: 100%;
   object-fit: cover;
   filter: brightness(80%);
 `;

@@ -5,7 +5,7 @@ const topProjects = [
   'Vanilla-CSS-Elements',
   'Googl-Drive-Clone',
   'FigmaOP-open-source-Figma-plugins',
-  'moodle-staff-emails-scraper',
+  'university_staff_emails_scraper',
 ];
 
 export const Context = createContext(null);

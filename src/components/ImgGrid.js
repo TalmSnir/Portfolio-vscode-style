@@ -88,7 +88,7 @@ export default function ImgGrid() {
       });
       setTimeout(() => {
         imageRef.current.style.visibility = 'visible';
-      }, 400);
+      }, 200);
     }
   };
 
