@@ -96,7 +96,7 @@ export default function Project() {
       if (project.name !== 'README.md') {
         const { homepage, html_url, description } = data[project.id];
         setProjectData({
-          name: project['name'].replaceAll('-', ' '),
+          name: project['name'].replaceAll('-', ' ').replaceAll('_', ' '),
           repo: html_url,
           site: homepage,
           description: description,

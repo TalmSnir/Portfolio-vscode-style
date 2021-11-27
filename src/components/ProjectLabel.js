@@ -64,7 +64,7 @@ export default function ProjectLabel({ name, id, type = null }) {
             whiteSpace: 'nowrap',
             inlineSize: '90%',
           }}>
-          {name.replaceAll('-', ' ')}
+          {name.replaceAll('-', ' ').replaceAll('_', ' ')}
         </span>
       </FlexContainer>
       {isActive && (

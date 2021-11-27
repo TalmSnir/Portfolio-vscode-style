@@ -53,7 +53,7 @@ const ImgModal = styled.div`
   block-size: ${props => (props.width < 500 ? '100%' : '80%')};
   max-block-size: 1200px;
   max-inline-size: 1200px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px ${({ theme }) => theme.clrAccentBlue};
   background-color: ${({ theme }) => theme.clrBgMain};
   img {
     width: 100%;

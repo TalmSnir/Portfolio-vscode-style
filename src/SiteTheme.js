@@ -112,6 +112,22 @@ body {
  font-family: "Segoe UI", Arial, sans-serif;
 }
 
+blockquote{
+  & > p{
+    padding-inline-start:1rem;
+    position:relative;
+    &::before{
+      content:'';
+      position:absolute;
+      left:0;
+      top:0;
+      height:100%;
+      width:0.1rem;
+      background-color:${({ theme }) => theme.clrWhite};
+    }
+  }
+  
+}
 }
 `;
 export default function SiteTheme({ children }) {

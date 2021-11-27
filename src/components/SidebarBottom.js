@@ -123,7 +123,7 @@ export default function SidebarBottom() {
           <Text
             as='a'
             href='CV.pdf'
-            download
+            download='Tal Snir-CV.pdf'
             style={{ textDecoration: 'none', color: 'inherit' }}>
             Click to Download <VscCloudDownload size={16} />
           </Text>
