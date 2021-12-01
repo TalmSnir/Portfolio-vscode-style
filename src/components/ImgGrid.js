@@ -39,6 +39,7 @@ const Grid = styled.section`
   flex-wrap: wrap;
   & > * {
     flex: 1 1 33%;
+    aspect-ratio: 1.5/1;
     min-width: 200px;
     max-width: 500px;
   }

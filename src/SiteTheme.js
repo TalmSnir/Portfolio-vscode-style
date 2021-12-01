@@ -113,6 +113,9 @@ body {
  overflow-y:auto;
  font-family: "Segoe UI", Arial, sans-serif;
 }
+#root{
+  height:100%;
+}
 
 blockquote{
   & > p{
