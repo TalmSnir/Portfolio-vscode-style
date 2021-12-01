@@ -27,7 +27,7 @@ const HeaderSections = styled.div`
   gap: ${({ theme }) => theme.spacingXs};
   font-size: ${({ theme }) => theme.fsHeadingH5};
   text-transform: capitalize;
-  @media screen and (max-width: ${({ theme }) => theme.bpSm}) {
+  @media screen and (max-width: ${({ theme }) => `calc(${theme.bpSm} - 1px)`}) {
     span {
       display: none;
     }

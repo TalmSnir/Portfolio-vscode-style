@@ -64,6 +64,12 @@ export const ControlButton = styled.button`
   appearance: none;
   border: 0;
   cursor: pointer;
+  inline-size: 32px;
+  block-size: 32px;
+  @media screen and (max-width: ${({ theme }) => theme.bpMd}) {
+    inline-size: 24px;
+    block-size: 24px;
+  }
   &:focus {
     outline-offset: 2px;
     outline: 1px solid ${({ theme }) => theme.clrText01};
@@ -77,10 +83,8 @@ export const ControlButton = styled.button`
   justify-content: center;
   & > svg {
     fill: ${({ theme }) => theme.clrText01};
-    @media screen and (min-width: ${({ theme }) => theme.bpMd}) {
-      inline-size: 24px;
-      block-size: 24px;
-    }
+    inline-size: 100%;
+    block-size: 100%;
   }
 `;
 export default function Image({ src, handleClick }) {

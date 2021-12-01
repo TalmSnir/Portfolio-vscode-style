@@ -87,7 +87,7 @@ const GlobalStyle = createGlobalStyle`
 html{
   scroll-behavior:smooth;
   overscroll-behavior: none;
-  
+  height:100%;
 }
 
 *{
@@ -108,7 +108,9 @@ html{
   }
 }
 body {
- height:100vh;
+ height:100%;
+ overflow-x:hidden;
+ overflow-y:auto;
  font-family: "Segoe UI", Arial, sans-serif;
 }
 

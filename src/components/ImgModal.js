@@ -61,10 +61,6 @@ const ImgModal = styled.div`
     max-width: 100%;
     object-fit: contain;
   }
-  button > svg {
-    inline-size: 24px;
-    block-size: 24px;
-  }
   div {
     position: unset;
     opacity: 1;
