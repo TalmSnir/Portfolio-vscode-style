@@ -62,7 +62,7 @@ export default function Footer() {
     <FooterContainer>
       <IconContext.Provider value={{ size: 12 }}>
         <LeftSide>
-          <IconWithText>
+          <IconWithText style={{ gap: '0.5rem' }}>
             <VscSourceControl />
             <span>talmsnir@gmail.com</span>
           </IconWithText>
